@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="600.0" prefWidth="540.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171">
+   <children>
+      <TableView layoutX="9.0" layoutY="199.0" prefHeight="387.0" prefWidth="522.0">
+        <columns>
+          <TableColumn prefWidth="103.0" text="주문시간" />
+          <TableColumn text="메뉴" />
+            <TableColumn text="가격" />
+            <TableColumn text="원가" />
+            <TableColumn minWidth="6.0" prefWidth="90.0" text="매출" />
+            <TableColumn prefWidth="90.0" text="영업이익" />
+        </columns>
+      </TableView>
+      <BarChart layoutX="20.0" layoutY="49.0" prefHeight="133.0" prefWidth="500.0">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </BarChart>
+      <Label alignment="CENTER" layoutX="222.0" layoutY="14.0" text="주문내역" textAlignment="CENTER">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

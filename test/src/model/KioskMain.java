@@ -1,4 +1,4 @@
-package application;
+package model;
 	
 import javafx.application.*;
 import javafx.fxml.*;
@@ -11,9 +11,10 @@ public class KioskMain extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("Kiosk.fxml"));
-			Scene scene = new Scene(root,450,600);
+			BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("../view/Kiosk.fxml"));
+			Scene scene = new Scene(root,540,600);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			primaryStage.setTitle("죠지네 키오스크");
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch(Exception e) {
