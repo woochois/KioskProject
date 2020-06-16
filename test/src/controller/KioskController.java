@@ -526,8 +526,10 @@ public class KioskController extends KioskDBController implements Initializable 
 			totalPrice1.setText("총 가격");
 			totalPrice2.setText("총 가격");
 			totalPrice3.setText("총 가격");
-			tot = 0;
+			
 			PaymentCardDB(0, 0, null, 0, 0);
+			
+			tot = 0;
 			myList.clear();
 		}
 	}
