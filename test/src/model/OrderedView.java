@@ -2,12 +2,12 @@ package model;
 
 import javafx.beans.property.*;
 
-public class Basket {
+public class OrderedView {
 	private StringProperty menuName;
 	private IntegerProperty menuCount;
 	private IntegerProperty menuPrice;
 
-	public Basket(StringProperty menuName, IntegerProperty menuCount, IntegerProperty menuPrice) {
+	public OrderedView(StringProperty menuName, IntegerProperty menuCount, IntegerProperty menuPrice) {
 		this.menuName = menuName;
 		this.menuCount = menuCount;
 		this.menuPrice = menuPrice;

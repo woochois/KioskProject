@@ -12,11 +12,12 @@ public class KioskMain extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("../view/Kiosk.fxml"));
-			Scene scene = new Scene(root,540,600);
+			Scene scene = new Scene(root,540,900);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setTitle("죠지네 키오스크");
 			primaryStage.setScene(scene);
 			primaryStage.show();
+			primaryStage.setResizable(false);
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

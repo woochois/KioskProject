@@ -13,13 +13,13 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="600.0" maxWidth="540.0" minHeight="600.0" minWidth="540.0" prefHeight="600.0" prefWidth="540.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.KioskController">
+<BorderPane maxHeight="900.0" maxWidth="540.0" minHeight="900.0" minWidth="540.0" prefHeight="900.0" prefWidth="540.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.KioskController">
 	<center>
 		<TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
 			<tabs>
 				<Tab text="식사류">
 					<content>
-						<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+						<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="505.0" prefWidth="540.0">
 							<children>
 								<Button fx:id="paymentButton" layoutX="23.0" layoutY="444.0" mnemonicParsing="false" onAction="#onPaymentButton" prefHeight="60.0" prefWidth="115.0" text="결제" />
 								<Button fx:id="clearButton" layoutX="153.0" layoutY="444.0" mnemonicParsing="false" onAction="#onClearButton" prefHeight="60.0" prefWidth="115.0" text="취소" />
@@ -31,52 +31,46 @@
 								<Label layoutX="195.0" layoutY="405.0" text="부대찌개" />
 								<ImageView fx:id="menuKimchi" fitHeight="120.0" fitWidth="120.0" layoutX="160.0" layoutY="15.0" onMouseClicked="#onMouseClicked" pickOnBounds="true" preserveRatio="true">
 									<image>
-										<Image url="@../img//김치찌개.png" />
+										<Image url="@../img/김치찌개.png" />
 									</image>
 								</ImageView>
 								<ImageView fx:id="menuDoinjang" fitHeight="120.0" fitWidth="120.0" layoutX="160.0" layoutY="150.0" onMouseClicked="#onMouseClicked" pickOnBounds="true" preserveRatio="true">
 									<image>
-										<Image url="@../img//김치찌개.png" />
+										<Image url="@../img/부대김치찌개.png" />
 									</image>
 								</ImageView>
 								<ImageView fx:id="menuDongtae" fitHeight="120.0" fitWidth="120.0" layoutX="15.0" layoutY="15.0" onMouseClicked="#onMouseClicked" pickOnBounds="true" preserveRatio="true">
 									<image>
-										<Image url="@../img//김치찌개.png" />
+										<Image url="@../img/꽁치김치찌개.png" />
 									</image>
 								</ImageView>
 								<ImageView fx:id="menuGochujang" fitHeight="120.0" fitWidth="120.0" layoutX="15.0" layoutY="150.0" onMouseClicked="#onMouseClicked" pickOnBounds="true" preserveRatio="true">
 									<image>
-										<Image url="@../img//김치찌개.png" />
+										<Image url="@../img/떡볶이2.png" />
 									</image>
 								</ImageView>
 								<ImageView fx:id="menuTuna" fitHeight="120.0" fitWidth="120.0" layoutX="15.0" layoutY="285.0" onMouseClicked="#onMouseClicked" pickOnBounds="true" preserveRatio="true">
 									<image>
-										<Image url="@../img//김치찌개.png" />
+										<Image url="@../img/제육볶음.png" />
 									</image>
 								</ImageView>
 								<ImageView fx:id="menuBoodae" fitHeight="120.0" fitWidth="120.0" layoutX="160.0" layoutY="285.0" onMouseClicked="#onMouseClicked" pickOnBounds="true" preserveRatio="true">
 									<image>
-										<Image url="@../img//김치찌개.png" />
+										<Image url="@../img/삼겹살.png" />
 									</image>
 								</ImageView>
 								<TableView fx:id="tableView" layoutX="290.0" layoutY="15.0" prefHeight="372.0" prefWidth="227.0">
 									<columns>
-										<TableColumn prefWidth="75.0" text="메뉴" />
-										<TableColumn prefWidth="75.0" text="개수" />
-										<TableColumn prefWidth="75.0" text="가격" />
+										<TableColumn fx:id="tableMenu" prefWidth="95.0" text="메뉴" />
+										<TableColumn fx:id="tableCount" prefWidth="55.0" text="개수" />
+										<TableColumn fx:id="tablePrice" prefWidth="75.0" text="가격" />
 									</columns>
 								</TableView>
-								<Label layoutX="300.0" layoutY="395.0" text="총가격 : ">
-									<font>
-										<Font name="System Bold" size="18.0" />
-									</font>
-								</Label>
-								<Label alignment="CENTER_RIGHT" layoutX="380.0" layoutY="395.0" prefHeight="21.0" prefWidth="124.0" text="Label">
-									<font>
-										<Font size="18.0" />
-									</font>
-								</Label>
-								<Hyperlink alignment="CENTER" contentDisplay="CENTER" layoutX="286.0" layoutY="429.0" prefHeight="78.0" prefWidth="243.0" text="Created by HotGeorge" textAlignment="CENTER" />
+								<Hyperlink fx:id="hiddenAdmin" alignment="CENTER" contentDisplay="CENTER" layoutX="297.0" layoutY="454.0" onMouseClicked="#onAdminClicked" prefHeight="78.0" prefWidth="243.0" text="Created by HotGeorge" textAlignment="CENTER" />
+                        <Label fx:id="totalPrice" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="280.0" layoutY="402.0" prefHeight="21.0" prefWidth="227.0" text="총 가격" textAlignment="RIGHT" AnchorPane.bottomAnchor="93.0" AnchorPane.leftAnchor="280.0" AnchorPane.rightAnchor="33.0" AnchorPane.topAnchor="402.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Label>
 							</children>
 						</AnchorPane>
 					</content>
@@ -95,52 +89,47 @@
 								<Label layoutX="203.0" layoutY="405.0" text="칡차" />
 								<ImageView fx:id="menuBoritea" fitHeight="120.0" fitWidth="120.0" layoutX="15.0" layoutY="15.0" onMouseClicked="#onMouseClicked" pickOnBounds="true" preserveRatio="true">
 									<image>
-										<Image url="@../img//삼겹살.png" />
+										<Image url="@../img/삼겹살.png" />
 									</image>
 								</ImageView>
 								<ImageView fx:id="menuChilgtea" fitHeight="120.0" fitWidth="120.0" layoutX="160.0" layoutY="285.0" onMouseClicked="#onMouseClicked" pickOnBounds="true" preserveRatio="true">
 									<image>
-										<Image url="@../img//삼겹살.png" />
+										<Image url="@../img/삼겹살.png" />
 									</image>
 								</ImageView>
 								<ImageView fx:id="menuGreentea" fitHeight="120.0" fitWidth="120.0" layoutX="15.0" layoutY="285.0" onMouseClicked="#onMouseClicked" pickOnBounds="true" preserveRatio="true">
 									<image>
-										<Image url="@../img//삼겹살.png" />
+										<Image url="@../img/삼겹살.png" />
 									</image>
 								</ImageView>
 								<ImageView fx:id="menuArisoo" fitHeight="120.0" fitWidth="120.0" layoutX="160.0" layoutY="150.0" onMouseClicked="#onMouseClicked" pickOnBounds="true" preserveRatio="true">
 									<image>
-										<Image url="@../img//삼겹살.png" />
+										<Image url="@../img/삼겹살.png" />
 									</image>
 								</ImageView>
 								<ImageView fx:id="menuSoongnyoong" fitHeight="120.0" fitWidth="120.0" layoutX="15.0" layoutY="150.0" onMouseClicked="#onMouseClicked" pickOnBounds="true" preserveRatio="true">
 									<image>
-										<Image url="@../img//삼겹살.png" />
+										<Image url="@../img/삼겹살.png" />
 									</image>
 								</ImageView>
 								<ImageView fx:id="menuDoongullae" fitHeight="120.0" fitWidth="120.0" layoutX="160.0" layoutY="15.0" onMouseClicked="#onMouseClicked" pickOnBounds="true" preserveRatio="true">
 									<image>
-										<Image url="@../img//삼겹살.png" />
+										<Image url="@../img/삼겹살.png" />
 									</image>
 								</ImageView>
-								<TableView layoutX="290.0" layoutY="15.0" prefHeight="372.0" prefWidth="227.0">
+								<TableView fx:id="tableView1" layoutX="290.0" layoutY="15.0" prefHeight="372.0" prefWidth="227.0">
 									<columns>
-										<TableColumn prefWidth="75.0" text="메뉴" />
-										<TableColumn prefWidth="75.0" text="개수" />
-										<TableColumn prefWidth="75.0" text="가격" />
+										<TableColumn fx:id="tableMenu1" prefWidth="95.0" text="메뉴" />
+										<TableColumn fx:id="tableCount1" prefWidth="55.0" text="개수" />
+										<TableColumn fx:id="tablePrice1" prefWidth="75.0" text="가격" />
 									</columns>
 								</TableView>
-								<Hyperlink alignment="CENTER" contentDisplay="CENTER" layoutX="286.0" layoutY="429.0" prefHeight="78.0" prefWidth="243.0" text="Created by HotGeorge" textAlignment="CENTER" />
-								<Label layoutX="300.0" layoutY="395.0" text="총가격 : ">
-									<font>
-										<Font name="System Bold" size="18.0" />
-									</font>
-								</Label>
-								<Label alignment="CENTER_RIGHT" layoutX="380.0" layoutY="395.0" prefHeight="21.0" prefWidth="124.0" text="Label">
-									<font>
-										<Font size="18.0" />
-									</font>
-								</Label>
+								<Hyperlink alignment="CENTER" contentDisplay="CENTER" layoutX="297.0" layoutY="454.0" prefHeight="78.0" prefWidth="243.0" text="Created by HotGeorge" textAlignment="CENTER" />
+                        <Label fx:id="totalPrice1" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="280.0" layoutY="402.0" prefHeight="21.0" prefWidth="227.0" text="총 가격" textAlignment="RIGHT" AnchorPane.bottomAnchor="93.0" AnchorPane.leftAnchor="280.0" AnchorPane.rightAnchor="33.0" AnchorPane.topAnchor="402.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
 							</children>
 						</AnchorPane>
 					</content>
@@ -159,52 +148,47 @@
 								<Label layoutX="203.0" layoutY="405.0" text="꿀타래" />
 								<ImageView fx:id="menuDasick" fitHeight="120.0" fitWidth="120.0" layoutX="15.0" layoutY="15.0" onMouseClicked="#onMouseClicked" pickOnBounds="true" preserveRatio="true">
 									<image>
-										<Image url="@../img//스팸구이.png" />
+										<Image url="@../img/스팸구이.png" />
 									</image>
 								</ImageView>
 								<ImageView fx:id="menuGGooltarae" fitHeight="120.0" fitWidth="120.0" layoutX="160.0" layoutY="285.0" onMouseClicked="#onMouseClicked" pickOnBounds="true" preserveRatio="true">
 									<image>
-										<Image url="@../img//스팸구이.png" />
+										<Image url="@../img/스팸구이.png" />
 									</image>
 								</ImageView>
 								<ImageView fx:id="menuHodduck" fitHeight="120.0" fitWidth="120.0" layoutX="15.0" layoutY="150.0" onMouseClicked="#onMouseClicked" pickOnBounds="true" preserveRatio="true">
 									<image>
-										<Image url="@../img//스팸구이.png" />
+										<Image url="@../img/스팸구이.png" />
 									</image>
 								</ImageView>
 								<ImageView fx:id="menuHangwa" fitHeight="120.0" fitWidth="120.0" layoutX="15.0" layoutY="285.0" onMouseClicked="#onMouseClicked" pickOnBounds="true" preserveRatio="true">
 									<image>
-										<Image url="@../img//스팸구이.png" />
+										<Image url="@../img/스팸구이.png" />
 									</image>
 								</ImageView>
 								<ImageView fx:id="menuGangjung" fitHeight="120.0" fitWidth="120.0" layoutX="160.0" layoutY="150.0" onMouseClicked="#onMouseClicked" pickOnBounds="true" preserveRatio="true">
 									<image>
-										<Image url="@../img//스팸구이.png" />
+										<Image url="@../img/스팸구이.png" />
 									</image>
 								</ImageView>
 								<ImageView fx:id="menuYakgwa" fitHeight="120.0" fitWidth="120.0" layoutX="160.0" layoutY="15.0" onMouseClicked="#onMouseClicked" pickOnBounds="true" preserveRatio="true">
 									<image>
-										<Image url="@../img//스팸구이.png" />
+										<Image url="@../img/스팸구이.png" />
 									</image>
 								</ImageView>
-								<TableView layoutX="290.0" layoutY="15.0" prefHeight="372.0" prefWidth="227.0">
+								<TableView fx:id="tableView2" layoutX="290.0" layoutY="15.0" prefHeight="372.0" prefWidth="227.0">
 									<columns>
-										<TableColumn prefWidth="75.0" text="메뉴" />
-										<TableColumn prefWidth="75.0" text="개수" />
-										<TableColumn prefWidth="75.0" text="가격" />
+										<TableColumn fx:id="tableMenu2" prefWidth="95.0" text="메뉴" />
+										<TableColumn fx:id="tableCount2" prefWidth="55.0" text="개수" />
+										<TableColumn fx:id="tablePrice2" prefWidth="75.0" text="가격" />
 									</columns>
 								</TableView>
-								<Hyperlink alignment="CENTER" contentDisplay="CENTER" layoutX="286.0" layoutY="429.0" prefHeight="78.0" prefWidth="243.0" text="Created by HotGeorge" textAlignment="CENTER" />
-								<Label layoutX="300.0" layoutY="395.0" text="총가격 : ">
-									<font>
-										<Font name="System Bold" size="18.0" />
-									</font>
-								</Label>
-								<Label alignment="CENTER_RIGHT" layoutX="380.0" layoutY="395.0" prefHeight="21.0" prefWidth="124.0" text="Label">
-									<font>
-										<Font size="18.0" />
-									</font>
-								</Label>
+								<Hyperlink alignment="CENTER" contentDisplay="CENTER" layoutX="297.0" layoutY="454.0" prefHeight="78.0" prefWidth="243.0" text="Created by HotGeorge" textAlignment="CENTER" />
+                        <Label fx:id="totalPrice2" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="280.0" layoutY="402.0" prefHeight="21.0" prefWidth="227.0" text="총 가격" textAlignment="RIGHT" AnchorPane.bottomAnchor="93.0" AnchorPane.leftAnchor="280.0" AnchorPane.rightAnchor="33.0" AnchorPane.topAnchor="402.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
 							</children>
 						</AnchorPane>
 					</content>
@@ -223,27 +207,27 @@
 								<Label layoutX="195.0" layoutY="405.0" text="부찌세트" />
 								<ImageView fx:id="menuKimchiSet" fitHeight="120.0" fitWidth="120.0" layoutX="15.0" layoutY="15.0" onMouseClicked="#onMouseClicked" pickOnBounds="true" preserveRatio="true">
 									<image>
-										<Image url="@../img//제육볶음.png" />
+										<Image url="@../img/제육볶음.png" />
 									</image>
 								</ImageView>
 								<ImageView fx:id="menuBoodaeSet" fitHeight="120.0" fitWidth="120.0" layoutX="160.0" layoutY="285.0" onMouseClicked="#onMouseClicked" pickOnBounds="true" preserveRatio="true">
 									<image>
-										<Image url="@../img//제육볶음.png" />
+										<Image url="@../img/제육볶음.png" />
 									</image>
 								</ImageView>
 								<ImageView fx:id="menuGochujangSet" fitHeight="120.0" fitWidth="120.0" layoutX="160.0" layoutY="150.0" onMouseClicked="#onMouseClicked" pickOnBounds="true" preserveRatio="true">
 									<image>
-										<Image url="@../img//제육볶음.png" />
+										<Image url="@../img/제육볶음.png" />
 									</image>
 								</ImageView>
 								<ImageView fx:id="menuDongtaeSet" fitHeight="120.0" fitWidth="120.0" layoutX="15.0" layoutY="150.0" onMouseClicked="#onMouseClicked" pickOnBounds="true" preserveRatio="true">
 									<image>
-										<Image url="@../img//제육볶음.png" />
+										<Image url="@../img/제육볶음.png" />
 									</image>
 								</ImageView>
 								<ImageView fx:id="menuTunaSet" fitHeight="120.0" fitWidth="120.0" layoutX="15.0" layoutY="285.0" onMouseClicked="#onMouseClicked" pickOnBounds="true" preserveRatio="true">
 									<image>
-										<Image url="@../img//제육볶음.png" />
+										<Image url="@../img/제육볶음.png" />
 									</image>
 								</ImageView>
 								<ImageView fx:id="menuDoinjangSet" fitHeight="120.0" fitWidth="120.0" layoutX="160.0" layoutY="15.0" onMouseClicked="#onMouseClicked" pickOnBounds="true" preserveRatio="true">
@@ -251,24 +235,19 @@
 										<Image url="@../img/제육볶음.png" />
 									</image>
 								</ImageView>
-								<TableView layoutX="290.0" layoutY="15.0" prefHeight="372.0" prefWidth="227.0">
+								<TableView fx:id="tableView3" layoutX="290.0" layoutY="15.0" prefHeight="372.0" prefWidth="227.0">
 									<columns>
-										<TableColumn prefWidth="75.0" text="메뉴" />
-										<TableColumn prefWidth="75.0" text="개수" />
-										<TableColumn prefWidth="75.0" text="가격" />
+										<TableColumn fx:id="tableMenu3" prefWidth="95.0" text="메뉴" />
+										<TableColumn fx:id="tableCount3" prefWidth="55.0" text="개수" />
+										<TableColumn fx:id="tablePrice3" prefWidth="75.0" text="가격" />
 									</columns>
 								</TableView>
-								<Hyperlink alignment="CENTER" contentDisplay="CENTER" layoutX="286.0" layoutY="429.0" prefHeight="78.0" prefWidth="243.0" text="Created by HotGeorge" textAlignment="CENTER" />
-								<Label layoutX="300.0" layoutY="395.0" text="총가격 : ">
-									<font>
-										<Font name="System Bold" size="18.0" />
-									</font>
-								</Label>
-								<Label alignment="CENTER_RIGHT" layoutX="380.0" layoutY="395.0" prefHeight="21.0" prefWidth="124.0" text="Label">
-									<font>
-										<Font size="18.0" />
-									</font>
-								</Label>
+								<Hyperlink alignment="CENTER" contentDisplay="CENTER" layoutX="297.0" layoutY="454.0" prefHeight="78.0" prefWidth="243.0" text="Created by HotGeorge" textAlignment="CENTER" />
+                        <Label fx:id="totalPrice3" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="280.0" layoutY="402.0" prefHeight="21.0" prefWidth="227.0" text="총 가격" textAlignment="RIGHT" AnchorPane.bottomAnchor="93.0" AnchorPane.leftAnchor="280.0" AnchorPane.rightAnchor="33.0" AnchorPane.topAnchor="402.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
 							</children>
 						</AnchorPane>
 					</content>
@@ -276,11 +255,18 @@
 			</tabs>
 		</TabPane>
 	</center>
-	<top>
-		<Button fx:id="adminButton" mnemonicParsing="false" onAction="#onAdminButtonAction" prefHeight="55.0" prefWidth="540.0" text="죠지네" textFill="#544747" BorderPane.alignment="CENTER">
-			<font>
-				<Font name="Haan YGodic 250" size="27.0" />
-			</font>
-		</Button>
-	</top>
+   <top>
+      <ImageView fitHeight="178.0" fitWidth="551.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+         <image>
+            <Image url="@../img/배경.jpg" />
+         </image>
+      </ImageView>
+   </top>
+   <bottom>
+      <ImageView fitHeight="173.0" fitWidth="554.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+         <image>
+            <Image url="@../img/하단배경.jpg" />
+         </image>
+      </ImageView>
+   </bottom>
 </BorderPane>
