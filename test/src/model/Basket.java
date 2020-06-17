@@ -24,4 +24,5 @@ public class Basket {
 	public IntegerProperty getMenuPrice() {
 		return menuPrice;
 	}
+
 }

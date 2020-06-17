@@ -24,7 +24,7 @@ import model.*;
 public class KioskController extends KioskDBController implements Initializable {
 
 	Basket basket = new Basket(null, null, null);
-
+	
 	static ObservableList<Basket> myList = FXCollections.observableArrayList();
 
 	@FXML
@@ -42,21 +42,15 @@ public class KioskController extends KioskDBController implements Initializable 
 	@FXML
 	private TableColumn<Basket, Integer> tableCount, tableCount1, tableCount2, tableCount3, tablePrice, tablePrice1,
 			tablePrice2, tablePrice3;
-	
+
 	@FXML
 	private Button clearButton, paymentButton;
 
     @FXML
     private Label totalPrice, totalPrice1, totalPrice2, totalPrice3;
-    
+        
     @FXML
     private Hyperlink hiddenAdmin;
-	
-//=================================================<테이블뷰 초기화>======================================================//	
-	@FXML
-	void onClearButton(ActionEvent event) {
-		myList.clear();
-	}
 
 //=================================================<메뉴 뷰>======================================================//	
 	static Integer tot = 0;
@@ -89,6 +83,7 @@ public class KioskController extends KioskDBController implements Initializable 
 				totalPrice1.setText("총 가격 : " + tot + "원");
 				totalPrice2.setText("총 가격 : " + tot + "원");
 				totalPrice3.setText("총 가격 : " + tot + "원");
+				PaymentDB(10, MenuNameDB("1"), Integer.parseInt(result.get()), MenuPriceDB(1), MenuPriceDB(1) * Integer.parseInt(result.get()));
 			}
 
 		} else if (event.getSource().equals(menuDoinjang)) {
@@ -107,6 +102,7 @@ public class KioskController extends KioskDBController implements Initializable 
 				totalPrice1.setText("총 가격 : " + tot + "원");
 				totalPrice2.setText("총 가격 : " + tot + "원");
 				totalPrice3.setText("총 가격 : " + tot + "원");
+				PaymentDB(10, MenuNameDB("2"), Integer.parseInt(result.get()), MenuPriceDB(2), MenuPriceDB(2) * Integer.parseInt(result.get()));
 			}
 		} else if (event.getSource().equals(menuDongtae)) {
 			dialog.setHeaderText("러시아 앞바다에서 직접 잡은 급냉시킨 명태를 \n 통째로 넣고 끊인 담백하고 깔끔한 동태찌개");
@@ -124,6 +120,7 @@ public class KioskController extends KioskDBController implements Initializable 
 				totalPrice1.setText("총 가격 : " + tot + "원");
 				totalPrice2.setText("총 가격 : " + tot + "원");
 				totalPrice3.setText("총 가격 : " + tot + "원");
+				PaymentDB(10, MenuNameDB("3"), Integer.parseInt(result.get()), MenuPriceDB(3), MenuPriceDB(3) * Integer.parseInt(result.get()));
 			}
 		} else if (event.getSource().equals(menuGochujang)) {
 			dialog.setHeaderText("순창에서 직접 기른 태양초고추로 담근 고추장을 \n베이스로 한 깊고 칼칼한 고추장찌개");
@@ -141,6 +138,7 @@ public class KioskController extends KioskDBController implements Initializable 
 				totalPrice1.setText("총 가격 : " + tot + "원");
 				totalPrice2.setText("총 가격 : " + tot + "원");
 				totalPrice3.setText("총 가격 : " + tot + "원");
+				PaymentDB(10, MenuNameDB("4"), Integer.parseInt(result.get()), MenuPriceDB(4), MenuPriceDB(4) * Integer.parseInt(result.get()));
 			}
 		} else if (event.getSource().equals(menuTuna)) {
 			dialog.setHeaderText("주인이 원양어선을 타고 낚은 참다랑어로\n 만든 고소하고 기름진 참치찌개");
@@ -158,6 +156,7 @@ public class KioskController extends KioskDBController implements Initializable 
 				totalPrice1.setText("총 가격 : " + tot + "원");
 				totalPrice2.setText("총 가격 : " + tot + "원");
 				totalPrice3.setText("총 가격 : " + tot + "원");
+				PaymentDB(10, MenuNameDB("5"), Integer.parseInt(result.get()), MenuPriceDB(5), MenuPriceDB(5) * Integer.parseInt(result.get()));
 			}
 		} else if (event.getSource().equals(menuBoodae)) {
 			dialog.setHeaderText("스팸과 독일 소세지로 만든\n 얼큰한 부대찌개");
@@ -175,6 +174,7 @@ public class KioskController extends KioskDBController implements Initializable 
 				totalPrice1.setText("총 가격 : " + tot + "원");
 				totalPrice2.setText("총 가격 : " + tot + "원");
 				totalPrice3.setText("총 가격 : " + tot + "원");
+				PaymentDB(10, MenuNameDB("6"), Integer.parseInt(result.get()), MenuPriceDB(6), MenuPriceDB(6) * Integer.parseInt(result.get()));
 			}
 		} else if (event.getSource().equals(menuBoritea)) {
 			dialog.setHeaderText("고향 땅에서 직접 키운 청보리로\n 우려낸 시원하고 구수한 보리차");
@@ -192,6 +192,7 @@ public class KioskController extends KioskDBController implements Initializable 
 				totalPrice1.setText("총 가격 : " + tot + "원");
 				totalPrice2.setText("총 가격 : " + tot + "원");
 				totalPrice3.setText("총 가격 : " + tot + "원");
+				PaymentDB(20, MenuNameDB("7"), Integer.parseInt(result.get()), MenuPriceDB(7), MenuPriceDB(7) * Integer.parseInt(result.get()));
 			}
 		} else if (event.getSource().equals(menuDoongullae)) {
 			dialog.setHeaderText("둥굴레차");
@@ -209,6 +210,7 @@ public class KioskController extends KioskDBController implements Initializable 
 				totalPrice1.setText("총 가격 : " + tot + "원");
 				totalPrice2.setText("총 가격 : " + tot + "원");
 				totalPrice3.setText("총 가격 : " + tot + "원");
+				PaymentDB(20, MenuNameDB("8"), Integer.parseInt(result.get()), MenuPriceDB(8), MenuPriceDB(8) * Integer.parseInt(result.get()));
 			}
 		} else if (event.getSource().equals(menuSoongnyoong)) {
 			dialog.setHeaderText("숭늉");
@@ -226,6 +228,7 @@ public class KioskController extends KioskDBController implements Initializable 
 				totalPrice1.setText("총 가격 : " + tot + "원");
 				totalPrice2.setText("총 가격 : " + tot + "원");
 				totalPrice3.setText("총 가격 : " + tot + "원");
+				PaymentDB(20, MenuNameDB("9"), Integer.parseInt(result.get()), MenuPriceDB(9), MenuPriceDB(9) * Integer.parseInt(result.get()));
 			}
 		} else if (event.getSource().equals(menuArisoo)) {
 			dialog.setHeaderText("아리수");
@@ -243,6 +246,7 @@ public class KioskController extends KioskDBController implements Initializable 
 				totalPrice1.setText("총 가격 : " + tot + "원");
 				totalPrice2.setText("총 가격 : " + tot + "원");
 				totalPrice3.setText("총 가격 : " + tot + "원");
+				PaymentDB(20, MenuNameDB("10"), Integer.parseInt(result.get()), MenuPriceDB(10), MenuPriceDB(10) * Integer.parseInt(result.get()));
 			}
 		} else if (event.getSource().equals(menuGreentea)) {
 			dialog.setHeaderText("보성 녹차");
@@ -260,6 +264,7 @@ public class KioskController extends KioskDBController implements Initializable 
 				totalPrice1.setText("총 가격 : " + tot + "원");
 				totalPrice2.setText("총 가격 : " + tot + "원");
 				totalPrice3.setText("총 가격 : " + tot + "원");
+				PaymentDB(20, MenuNameDB("11"), Integer.parseInt(result.get()), MenuPriceDB(11), MenuPriceDB(11) * Integer.parseInt(result.get()));
 			}
 		} else if (event.getSource().equals(menuChilgtea)) {
 			dialog.setHeaderText("칡차");
@@ -277,6 +282,7 @@ public class KioskController extends KioskDBController implements Initializable 
 				totalPrice1.setText("총 가격 : " + tot + "원");
 				totalPrice2.setText("총 가격 : " + tot + "원");
 				totalPrice3.setText("총 가격 : " + tot + "원");
+				PaymentDB(20, MenuNameDB("12"), Integer.parseInt(result.get()), MenuPriceDB(12), MenuPriceDB(12) * Integer.parseInt(result.get()));
 			}
 		} else if (event.getSource().equals(menuDasick)) {
 			dialog.setHeaderText("다식");
@@ -294,9 +300,10 @@ public class KioskController extends KioskDBController implements Initializable 
 				totalPrice1.setText("총 가격 : " + tot + "원");
 				totalPrice2.setText("총 가격 : " + tot + "원");
 				totalPrice3.setText("총 가격 : " + tot + "원");
+				PaymentDB(30, MenuNameDB("13"), Integer.parseInt(result.get()), MenuPriceDB(13), MenuPriceDB(13) * Integer.parseInt(result.get()));
 			}
 		} else if (event.getSource().equals(menuYakgwa)) {
-			dialog.setHeaderText("다식");
+			dialog.setHeaderText("약과");
 			dialog.setContentText("가격은 8,000원 입니다.\n몇 개를 주문하시겠습니까?");
 			Optional<String> result = dialog.showAndWait();
 			if (result.isPresent()) {
@@ -311,6 +318,7 @@ public class KioskController extends KioskDBController implements Initializable 
 				totalPrice1.setText("총 가격 : " + tot + "원");
 				totalPrice2.setText("총 가격 : " + tot + "원");
 				totalPrice3.setText("총 가격 : " + tot + "원");
+				PaymentDB(30, MenuNameDB("14"), Integer.parseInt(result.get()), MenuPriceDB(14), MenuPriceDB(14) * Integer.parseInt(result.get()));
 			}
 		} else if (event.getSource().equals(menuHodduck)) {
 			dialog.setHeaderText("호떡");
@@ -328,6 +336,7 @@ public class KioskController extends KioskDBController implements Initializable 
 				totalPrice1.setText("총 가격 : " + tot + "원");
 				totalPrice2.setText("총 가격 : " + tot + "원");
 				totalPrice3.setText("총 가격 : " + tot + "원");
+				PaymentDB(30, MenuNameDB("15"), Integer.parseInt(result.get()), MenuPriceDB(15), MenuPriceDB(15) * Integer.parseInt(result.get()));
 			}
 		} else if (event.getSource().equals(menuGangjung)) {
 			dialog.setHeaderText("강정");
@@ -345,6 +354,7 @@ public class KioskController extends KioskDBController implements Initializable 
 				totalPrice1.setText("총 가격 : " + tot + "원");
 				totalPrice2.setText("총 가격 : " + tot + "원");
 				totalPrice3.setText("총 가격 : " + tot + "원");
+				PaymentDB(30, MenuNameDB("16"), Integer.parseInt(result.get()), MenuPriceDB(16), MenuPriceDB(16) * Integer.parseInt(result.get()));
 			}
 		} else if (event.getSource().equals(menuHangwa)) {
 			dialog.setHeaderText("한과");
@@ -362,6 +372,7 @@ public class KioskController extends KioskDBController implements Initializable 
 				totalPrice1.setText("총 가격 : " + tot + "원");
 				totalPrice2.setText("총 가격 : " + tot + "원");
 				totalPrice3.setText("총 가격 : " + tot + "원");
+				PaymentDB(30, MenuNameDB("17"), Integer.parseInt(result.get()), MenuPriceDB(17), MenuPriceDB(17) * Integer.parseInt(result.get()));
 			}
 		} else if (event.getSource().equals(menuGGooltarae)) {
 			dialog.setHeaderText("인사동 그 맛. 꿀타래 (15개입)");
@@ -379,6 +390,7 @@ public class KioskController extends KioskDBController implements Initializable 
 				totalPrice1.setText("총 가격 : " + tot + "원");
 				totalPrice2.setText("총 가격 : " + tot + "원");
 				totalPrice3.setText("총 가격 : " + tot + "원");
+				PaymentDB(30, MenuNameDB("18"), Integer.parseInt(result.get()), MenuPriceDB(18), MenuPriceDB(18) * Integer.parseInt(result.get()));
 			}
 		} else if (event.getSource().equals(menuKimchiSet)) {
 			dialog.setHeaderText("김찌세트 : 김치찌개 + 숭늉 + 꿀타래");
@@ -396,6 +408,7 @@ public class KioskController extends KioskDBController implements Initializable 
 				totalPrice1.setText("총 가격 : " + tot + "원");
 				totalPrice2.setText("총 가격 : " + tot + "원");
 				totalPrice3.setText("총 가격 : " + tot + "원");
+				PaymentDB(40, MenuNameDB("19"), Integer.parseInt(result.get()), MenuPriceDB(19), MenuPriceDB(19) * Integer.parseInt(result.get()));
 			}
 		} else if (event.getSource().equals(menuDoinjangSet)) {
 			dialog.setHeaderText("된찌세트 : 된장찌개 + 칡차 + 다식");
@@ -413,6 +426,7 @@ public class KioskController extends KioskDBController implements Initializable 
 				totalPrice1.setText("총 가격 : " + tot + "원");
 				totalPrice2.setText("총 가격 : " + tot + "원");
 				totalPrice3.setText("총 가격 : " + tot + "원");
+				PaymentDB(40, MenuNameDB("20"), Integer.parseInt(result.get()), MenuPriceDB(20), MenuPriceDB(20) * Integer.parseInt(result.get()));
 			}
 		} else if (event.getSource().equals(menuDongtaeSet)) {
 			dialog.setHeaderText("동찌세트 : 동태찌개 + 아리수 + 호떡");
@@ -430,6 +444,7 @@ public class KioskController extends KioskDBController implements Initializable 
 				totalPrice1.setText("총 가격 : " + tot + "원");
 				totalPrice2.setText("총 가격 : " + tot + "원");
 				totalPrice3.setText("총 가격 : " + tot + "원");
+				PaymentDB(40, MenuNameDB("21"), Integer.parseInt(result.get()), MenuPriceDB(21), MenuPriceDB(21) * Integer.parseInt(result.get()));
 			}
 		} else if (event.getSource().equals(menuGochujangSet)) {
 			dialog.setHeaderText("고추찌세트 : 고추장찌개 + 보리차 + 한과");
@@ -447,6 +462,7 @@ public class KioskController extends KioskDBController implements Initializable 
 				totalPrice1.setText("총 가격 : " + tot + "원");
 				totalPrice2.setText("총 가격 : " + tot + "원");
 				totalPrice3.setText("총 가격 : " + tot + "원");
+				PaymentDB(40, MenuNameDB("22"), Integer.parseInt(result.get()), MenuPriceDB(22), MenuPriceDB(22) * Integer.parseInt(result.get()));
 			}
 		} else if (event.getSource().equals(menuTunaSet)) {
 			dialog.setHeaderText("참찌세트 : 침치찌개 + 둥굴레차 + 강정");
@@ -464,6 +480,7 @@ public class KioskController extends KioskDBController implements Initializable 
 				totalPrice1.setText("총 가격 : " + tot + "원");
 				totalPrice2.setText("총 가격 : " + tot + "원");
 				totalPrice3.setText("총 가격 : " + tot + "원");
+				PaymentDB(40, MenuNameDB("23"), Integer.parseInt(result.get()), MenuPriceDB(23), MenuPriceDB(23) * Integer.parseInt(result.get()));
 			}
 		} else if (event.getSource().equals(menuBoodaeSet)) {
 			dialog.setHeaderText("부찌세트 : 부대찌개 + 녹차 + 약과");
@@ -481,6 +498,7 @@ public class KioskController extends KioskDBController implements Initializable 
 				totalPrice1.setText("총 가격 : " + tot + "원");
 				totalPrice2.setText("총 가격 : " + tot + "원");
 				totalPrice3.setText("총 가격 : " + tot + "원");
+				PaymentDB(40, MenuNameDB("24"), Integer.parseInt(result.get()), MenuPriceDB(24), MenuPriceDB(24) * Integer.parseInt(result.get()));
 			}
 		}
 	}
@@ -513,8 +531,8 @@ public class KioskController extends KioskDBController implements Initializable 
 			totalPrice1.setText("총 가격");
 			totalPrice2.setText("총 가격");
 			totalPrice3.setText("총 가격");
+			PaymentDB(0, "현금결제완료", 0, 0, 0);
 			tot = 0;
-			PaymentCashDB(0, 0, null, 0, 0);
 			myList.clear();
 		} else if (result.get() == card) {
 			Alert alert2 = new Alert(AlertType.INFORMATION);
@@ -526,9 +544,7 @@ public class KioskController extends KioskDBController implements Initializable 
 			totalPrice1.setText("총 가격");
 			totalPrice2.setText("총 가격");
 			totalPrice3.setText("총 가격");
-			
-			PaymentCardDB(0, 0, null, 0, 0);
-			
+			PaymentDB(0, "카드결제완료", 0, 0, 0);
 			tot = 0;
 			myList.clear();
 		}
@@ -539,6 +555,7 @@ public class KioskController extends KioskDBController implements Initializable 
 	// 어드민 버튼 액션
 	@FXML
 	void onAdminClicked(MouseEvent event) throws IOException {
+
 		// 다이알로그 생성
 		Dialog<Pair<String, String>> dialog = new Dialog<>();
 		dialog.setHeaderText("관리자님 환영합니다.");
@@ -586,7 +603,7 @@ public class KioskController extends KioskDBController implements Initializable 
 
 		Optional<Pair<String, String>> result = dialog.showAndWait();
 
-// 어드민 아이디 비밀번호 강제설정
+// 어드민 아이디 체크
 		result.ifPresent(usernamePassword -> {
 			if (username.getText().equals(AdminIdDB()) && (passwordF.getText().equals(AdminPwDB()))) {
 				FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/AdminMain.fxml"));
@@ -610,25 +627,44 @@ public class KioskController extends KioskDBController implements Initializable 
 	}
 
 //=================================================<테이블 뷰>======================================================//
-
+	
 	@Override
 	public void initialize(java.net.URL location, ResourceBundle resources) {
 		tableMenu.setCellValueFactory(cellData -> cellData.getValue().getMenuName());
 		tableCount.setCellValueFactory(cellData -> cellData.getValue().getMenuCount().asObject());
 		tablePrice.setCellValueFactory(cellData -> cellData.getValue().getMenuPrice().asObject());
+		
 		tableMenu1.setCellValueFactory(cellData -> cellData.getValue().getMenuName());
 		tableCount1.setCellValueFactory(cellData -> cellData.getValue().getMenuCount().asObject());
 		tablePrice1.setCellValueFactory(cellData -> cellData.getValue().getMenuPrice().asObject());
+		
 		tableMenu2.setCellValueFactory(cellData -> cellData.getValue().getMenuName());
 		tableCount2.setCellValueFactory(cellData -> cellData.getValue().getMenuCount().asObject());
 		tablePrice2.setCellValueFactory(cellData -> cellData.getValue().getMenuPrice().asObject());
+		
 		tableMenu3.setCellValueFactory(cellData -> cellData.getValue().getMenuName());
 		tableCount3.setCellValueFactory(cellData -> cellData.getValue().getMenuCount().asObject());
 		tablePrice3.setCellValueFactory(cellData -> cellData.getValue().getMenuPrice().asObject());
-		
+
 		tableView.setPlaceholder(new Label("주문을 해주세요."));
 		tableView1.setPlaceholder(new Label("주문을 해주세요."));
 		tableView2.setPlaceholder(new Label("주문을 해주세요."));
 		tableView3.setPlaceholder(new Label("주문을 해주세요."));
+
 	}
+	
+	
+//=================================================<테이블뷰 초기화>======================================================//	
+	@FXML
+	void onClearButton(ActionEvent event) {
+		totalPrice.setText("총 가격");
+		totalPrice1.setText("총 가격");
+		totalPrice2.setText("총 가격");
+		totalPrice3.setText("총 가격");
+		tot = 0;
+		
+		PaymentDB(0, "결제취소", 0, 0, 0);
+		myList.clear();
+	}
+
 }
